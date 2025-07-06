@@ -39,3 +39,25 @@ header.append(message);
 document
   .querySelector('.btn--close-cookie')
   .addEventListener('click', () => message.remove());
+
+//Scroll
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', e => {
+  const s1coords = section1.getBoundingClientRect();
+  //console.log(e.target.getBoundingClientRect()); //choose left and top in the obj
+
+  // OLD SCHOOL, excludes scroll bars
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' }); // Modern way
+});
